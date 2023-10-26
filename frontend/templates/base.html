@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> {% endcomment %}
+
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'css/aos.css' %}" />
+  <link href="{% static 'css/jquery.mb.YTPlayer.min.css' %}" media="all" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/my.css' %}" />
+  
+  <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  <div class="site-wrap">
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <div class="py-2 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7 d-none d-lg-block">
+            <a href="#!" class="small mr-3"><span class="icon-question-circle-o mr-2"></span> Murojaat
+              uchun?</a>
+            <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span>  </a>
+            <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span>
+              </a>
+          </div>
+          <div class="col-lg-5 text-right">
+
+            {% if user.is_superuser %}
+            <a href="{% url 'admin:index' %}" class="small mr-3"><span class="icon-person">
+              </span> Admin</a>
+            <a href="{% url 'user_logout' %}" class="small mr-3"><span class="icon-unlock-alt"></span> Chiqish</a>
+            {% elif user.is_authenticated %}
+            <a href="{% url 'profile' %}" class="small mr-3"><span class="icon-person">
+              </span> {{user.first_name}} {{user.last_name}}</a>
+            <a href="{% url 'user_logout' %}" class="small mr-3"><span class="icon-unlock-alt"></span> Chiqish</a>
+            {% else %}
+            <a href="{% url 'user_login' %}" class="small mr-3"><span class="icon-unlock-alt"></span> Kirish</a>
+            <a href="{% url 'register' %}" class="small btn btn-primary px-4 py-2 rounded-0"><span
+                class="icon-users"></span> Hisob ochish</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="d-flex align-items-center">
+          <div class="site-logo">
+            <a href="{% url 'index' %}" class="d-block">
+              <img src="{% static 'images/logo4.jpg' %}" alt="Image" class="img-fluid">
+            </a>
+          </div>
+          <div class="mr-auto d-flex">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li>
+                  <a href="{% url 'index' %}" class="nav-link text-left">Bosh sahifa</a>
+                </li>
+                <li>
+                  <a href="{% url 'profile' %}" class="nav-link text-left">Profilim</a>
+                </li>
+                <li>
+                  <a href="{% url 'curriculum:standard_list' %}" class="nav-link text-left">Ta'lim</a>
+                </li>
+                <li>
+                  <a href="{% url 'quiz' %}" class="nav-link text-left">Test </a>
+                </li>
+                <li>
+                  <a href="{% url 'news' %}" class="nav-link text-left">Yangiliklar</a>
+                </li>
+                <li>
+                  <a href="{% url 'about_school' %}" class="nav-link text-left">Maktab haqida</a>
+                </li>
+                <li>
+                  <a href="{% url 'about_us' %}" class="nav-link text-left">Biz haqimizda</a>
+                </li>
+              </ul>
+              </ul>
+            </nav>
+
+          </div>
+          <div class="ml-auto">
+            <div class="social-wrap">
+              <a href="#"><span class="icon-facebook" title='facebook'></span></a>
+              <a href="#"><span class="icon-telegram" title='telegram'></span></a>
+{% comment %} 
+              <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
+                  class="icon-menu h3"></span></a> {% endcomment %}
+              <a href="#" class="d-inline-block d-lg-none site-menu-toggle"><span onclick="openNav1()"
+              class="icon-menu h3"></span></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="myNav1" class="overlay1">
+          <a href="javascript:void(0)" class="closebtn1" onclick="closeNav1()" >&times;</a>
+          <div class="overlay-content1">
+            <a href="{% url 'index' %}" >Bosh sahifa</a>
+            <a href="{% url 'profile' %}" >Profilim</a>
+              <a href="{% url 'curriculum:standard_list' %}" >Ta'lim</a>
+              <a href="{% url 'news' %}" >Yangiliklar</a>
+              <a href="{% url 'about_school' %}" >Maktabimiz haqida</a>
+              <a href="{% url 'about_us' %}" >Biz haqimizda</a>
+          </div>
+      </div> 
+
+    </header>
+
+
+    {% block content %}{% endblock content %}
+
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <p class="mb-4">
+              <img src="{% static 'images/logo4.jpg' %}" alt="Image" class="img-fluid" />
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+              nemo minima qui dolor, iusto iure.
+            </p>
+            <p><a href="{% url 'about_school' %}">Batafsil</a></p>
+          </div>
+          <div class="col-lg-3">
+            <h3 class="footer-heading"><span>Sayt xaritasi</span></h3>
+            <ul class="list-unstyled">
+              <li><a href="{% url 'index' %}">Bosh sahifa</a></li>
+              <li>
+                <a href="{% url 'curriculum:standard_list' %}">Ta'lim</a>
+              </li>
+              <li><a href="{% url 'news' %}">Yangiliklar</a></li>
+              <li><a href="{% url 'about_school' %}">Maktabimiz haqida</a></li>
+              <li><a href="{% url 'about_us' %}">Biz haqimizda</a></li>
+            </ul>
+          </div>
+         
+          <div class="col-lg-3">
+            <h3 class="footer-heading"><span>Murojaat uchun</span></h3>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!" class="small mr-3"><span class="icon-phone2 mr-2"></span>  </a>
+              </li>
+              <li>
+                <a href="#!" class="small mr-3"><span class="icon-envelope-o mr-2"></span>
+                   </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+       
+        <div class="row">
+          <div class="col-12">
+            <div class="copyright">
+              <p>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                All rights reserved | This template is made with
+                <i class="icon-heart" aria-hidden="true"></i> by
+                <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .site-wrap -->
+
+  <!-- loader -->
+  <div id="loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#51be78" />
+    </svg>
+  </div>
+
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-ui.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+  <script src="{% static 'js/jquery.sticky.js' %}"></script>
+  <script src="{% static 'js/jquery.mb.YTPlayer.min.js' %}"></script>
+
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/my.js' %}"></script>
+</body>
+
+</html>

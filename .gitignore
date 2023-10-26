@@ -1,0 +1,4 @@
+venv/
+database/
+frontend/static
+frontend/media
