@@ -1,0 +1,128 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div
+  class="site-section ftco-subscribe-1 site-blocks-cover pb-4"
+  style="background-image: url('{% static 'images/bg_1.jpg' %}')"
+>
+  <div class="container">
+    <div class="row align-items-end">
+      <div class="col-lg-7">
+        <h2 class="mb-0">Biz haqimizda</h2>
+        <p>Biz bilan yaqindan tanishing.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="custom-breadcrumns border-bottom">
+  <div class="container">
+    <a href="{% url 'index' %}">Bosh sahifa</a>
+    <span class="mx-3 icon-keyboard_arrow_right"></span>
+    <span class="current">Biz haqimizda</span>
+  </div>
+</div>
+
+<div class="site-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 align-self-center">
+        <h2 class="section-title-underline mb-5">
+          <span>Biz haqimizda</span>
+        </h2>
+        <p>
+          Ushbu loyiha 2021 - yil XTV tomonidan tashkil e'tilgan Informatika
+          o'qituvchilarini Python va Django kursida malaka oshirishi davomida
+          yaratildi.
+        </p>
+      </div>
+      <div class="row mb-5">
+        <div class="col-lg-6 mb-lg-0">
+          <div class="col-lg-11">
+            <img
+              src="{% static 'images/team1.jpg' %}"
+              alt="Image"
+              class="img-fluid"
+              style="margin-bottom: 2rem"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6 mb-lg-0">
+          <div class="col-lg-11">
+            <img
+              src="{% static 'images/team2.jpg' %}"
+              alt="Image"
+              class="img-fluid"
+              style="margin-bottom: 2rem"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6 mb-lg-0">
+          <div class="col-lg-11">
+            <img
+              src="{% static 'images/team3.jpg' %}"
+              alt="Image"
+              class="img-fluid"
+              style="margin-bottom: 2rem"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6 mb-lg-0">
+          <div class="col-lg-11">
+            <img
+              src="{% static 'images/team4.jpg' %}"
+              alt="Image"
+              class="img-fluid"
+              style="margin-bottom: 2rem"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row container text-center" style="margin-bottom: 2rem">
+        <div class="col-lg-6">
+          <h2 class="section-title-underline mb-5">
+            <span>Loyiha yaratuvchisi</span>
+          </h2>
+          <h3>?????</h3>
+          <p>???? tumani ??? - maktab o'qituvchisi.</p>
+        </div>
+        <div class="col-lg-6">
+          <img
+            src="{% static 'images/user_avatar.png' %}"
+            alt="Image"
+            style="
+              width: 15rem;
+              height: auto;
+              border: solid 1px;
+              border-radius: 50%;
+            "
+          />
+        </div>
+      </div>
+
+      <div class="row container text-center" style="margin-bottom: 2rem">
+        <div class="col-lg-6">
+          <h2 class="section-title-underline mb-5">
+            <span>Kurs o'qituvchisi</span>
+          </h2>
+          <h3>Oybek Narzullayev</h3>
+          <p>Muhammad al-Xorazmiy nomidagi TATU 3 - kurs ta'labasi.</p>
+        </div>
+        <div class="col-lg-6">
+          <img
+            src="{% static 'images/oybek.png' %}"
+            alt="Image"
+            style="
+              width: 15rem;
+              height: auto;
+              border: solid 1px;
+              border-radius: 50%;
+            "
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

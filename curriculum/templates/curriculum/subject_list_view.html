@@ -1,0 +1,97 @@
+{% extends 'base.html' %} {% load static %} {% block title %} {{standards.name}}
+{%endblock title %} {% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="site-section ftco-subscribe-1 site-blocks-cover pb-4"
+  style="background-image: url('{% static 'images/bg_1.jpg' %}')">
+  <div class="container">
+    <div class="row align-items-end justify-content-center text-center">
+      <div class="col-lg-7">
+        <h2 class="mb-0">{{standards.name}} fanlari</h2>
+        <p>Barcha {{standards.name}} uchun fanlar sahifasi.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="custom-breadcrumns border-bottom">
+  <div class="container">
+    <a href="{% url 'index' %}">Bosh sahifa</a>
+    <span class="mx-3 icon-keyboard_arrow_right"></span>
+    <a href="{% url 'curriculum:standard_list' %}">Sinflar</a>
+    <span class="mx-3 icon-keyboard_arrow_right"></span>
+    <span class="current">{{standards.name}}</span>
+  </div>
+</div>
+
+<div class="site-section" id="courses">
+  <div class="container">
+    <div class="row mb-5 justify-content-center text-center">
+      <div class="col-lg-6 mb-5">
+        <h2 class="section-title-underline mb-3">
+          <span>Bilim olishdan to'xtamang.</span>
+        </h2>
+        <p>Vaqtingizni qo'shimcha ilm olishga sarflang</p>
+      </div>
+    </div>
+    {% if not standards.subjects.all %}
+    <div style="text-align: center;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+        class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+        <path
+          d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
+        <path
+          d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z" />
+
+      </svg>
+      <h3> Fanlar mavjud emas!</h3>
+    </div>
+
+    {% else %}
+    <div class="row justify-content-center">
+      {% for subject in standards.subjects.all %}
+      <div class="col-lg-4">
+        <div class="course-1-item" style="width: 100%;">
+          <figure class="thumnail">
+            <a href="course-single.html">
+              {% if subject.image %}
+
+              <img src="{{subject.image.url|default_if_none:'#'}}" alt="Image" class="img-fluid"
+                style="height: 15rem; width:100%; object-fit: cover;">
+
+
+              {% else %}
+              <img src="{% static 'images/subject.jpg' %}" alt="Image" class="img-fluid"
+                style="height: 15rem; background-size: cover; object-fit: cover;" /></a>
+
+            {% endif %}
+            <div class="category">
+              <h3>{{subject.name}}</h3>
+            </div>
+          </figure>
+          <div class="course-1-content pb-4">
+            <p class="desc mb-4">
+              {{subject.description|truncatechars:75}}
+              {{subject.slug}} {{standards.slug}}
+            </p>
+            <p>
+              <a href="{% url 'curriculum:lesson_list'  standard=standards.slug slug=subject.slug %}"
+                class="btn btn-primary rounded-0 px-4">Darslar</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+
+  </div>
+  {% endif %}
+</div>
+</div>
+
+{% else %}
+
+{% endif %}
+{% endblock content %}
