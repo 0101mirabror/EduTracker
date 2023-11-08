@@ -1,13 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  {% load static %}
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-  {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> {% endcomment %}
 
   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet" />
   <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}" />
@@ -80,7 +77,7 @@
         <div class="d-flex align-items-center">
           <div class="site-logo">
             <a href="{% url 'index' %}" class="d-block">
-              <img src="{% static 'images/logo4.jpg' %}" alt="Image" class="img-fluid">
+              <img src="{% static 'images/logo4.png' %}" alt="Image" class="img-fluid border-0">
             </a>
           </div>
           <div class="mr-auto d-flex">
@@ -102,7 +99,7 @@
                   <a href="{% url 'news' %}" class="nav-link text-left">Yangiliklar</a>
                 </li>
                 <li>
-                  <a href="{% url 'about_school' %}" class="nav-link text-left">Maktab haqida</a>
+                  <a href="{% url 'about_school' %}" class="nav-link text-left">Tizim haqida</a>
                 </li>
                 <li>
                   <a href="{% url 'about_us' %}" class="nav-link text-left">Biz haqimizda</a>
@@ -134,7 +131,7 @@
             <a href="{% url 'profile' %}" >Profilim</a>
               <a href="{% url 'curriculum:standard_list' %}" >Ta'lim</a>
               <a href="{% url 'news' %}" >Yangiliklar</a>
-              <a href="{% url 'about_school' %}" >Maktabimiz haqida</a>
+              <a href="{% url 'about_school' %}" >Tizim haqida</a>
               <a href="{% url 'about_us' %}" >Biz haqimizda</a>
           </div>
       </div> 
@@ -149,7 +146,7 @@
         <div class="row">
           <div class="col-lg-6">
             <p class="mb-4">
-              <img src="{% static 'images/logo4.jpg' %}" alt="Image" class="img-fluid" />
+              <img src="{% static 'images/logo4.png' %}" alt="Image" class="img-fluid" />
             </p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
@@ -165,7 +162,7 @@
                 <a href="{% url 'curriculum:standard_list' %}">Ta'lim</a>
               </li>
               <li><a href="{% url 'news' %}">Yangiliklar</a></li>
-              <li><a href="{% url 'about_school' %}">Maktabimiz haqida</a></li>
+              <li><a href="{% url 'about_school' %}">Tizim haqida</a></li>
               <li><a href="{% url 'about_us' %}">Biz haqimizda</a></li>
             </ul>
           </div>
